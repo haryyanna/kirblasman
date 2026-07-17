@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,37 +12,47 @@
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Custom style -->
+    <link rel="stylesheet" href="css/style.css">
+
     <!-- Owl Carousel -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
 
     <!-- Animate.css (untuk efek scroll) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <!-- Font Awesome (ikon) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(to bottom, #add8e6, #ffffff);
-            color:#333;
+            color: #333;
         }
+
         .navbar {
-            background-color: rgba(255,255,255,0.9);
+            background-color: rgba(255, 255, 255, 0.9);
         }
+
         .navbar-brand img {
             height: 40px;
             margin-right: .5rem;
         }
+
         .section-title {
             font-weight: 600;
             margin-bottom: 1rem;
         }
+
         .card-img-top {
             object-fit: cover;
             height: 200px;
         }
+
         .testimonial-img {
             width: 80px;
             height: 80px;
@@ -49,258 +60,342 @@
             object-fit: cover;
             margin-bottom: .5rem;
         }
+
         .footer {
-            background-color:#f8f9fa;
-            padding:1rem 0;
-            text-align:center;
-            font-size:.9rem;
+            background-color: #f8f9fa;
+            padding: 1rem 0;
+            text-align: center;
+            font-size: .9rem;
         }
-        .quick-nav a{
-            margin-right:1rem;
-            color:#0d6efd;
-            text-decoration:none;
+
+        .quick-nav a {
+            margin-right: 1rem;
+            color: #0d6efd;
+            text-decoration: none;
         }
-        .quick-nav a:hover{
-            text-decoration:underline;
+
+        .quick-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero carousel background */
+        .hero-carousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .hero-carousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        .hero-carousel .item {
+            min-height: 560px;
+            background-color: #111;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        .hero-carousel .item .carousel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(18, 18, 37, .30), rgba(18, 18, 37, .55));
+            opacity: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 5;
+        }
+        .object-fit-cover {
+            display: none;
+        }
+        .hero-carousel .owl-nav {
+            position: absolute;
+            top: 50%;
+            right: 2%;
+            transform: translateY(-50%);
+            z-index: 6;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .hero-carousel .owl-prev,
+        .hero-carousel .owl-next {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.24);
+            border: 1px solid rgba(255,255,255,.75);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .3s ease;
+        }
+        .hero-carousel .owl-prev:hover,
+        .hero-carousel .owl-next:hover {
+            background: rgba(255,255,255,.95);
+            color: #212529;
+            border-color: rgba(255,255,255,.95);
+        }
+        .hero-carousel .owl-dots {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+        }
+        .hero-carousel .owl-dot {
+            width: 12px;
+            height: 12px;
+            margin: 0 6px;
+            background: rgba(255,255,255,.45);
+            border-radius: 50%;
+            transition: background .3s ease;
+        }
+        .hero-carousel .owl-dot.active {
+            background: #ffffff;
+        }
+        .hero-content h1,
+        .hero-content p,
+        .hero-content .btn {
+            color: #fff;
         }
     </style>
 </head>
+
 <body>
 
-<!-- ==================== NAVBAR ==================== -->
-<nav class="navbar navbar-expand-lg shadow-sm sticky-top py-2">
-    <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="assets/KIR.webp" alt="Logo KIR">
-            KIR Blasman
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNav" aria-controls="navbarNav"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="#breanda">Breanda</a></li>
-                <li class="nav-item"><a class="nav-link" href="#pembina">Pembina</a></li>
-                <li class="nav-item"><a class="nav-link" href="#raihan">Raihan Juara</a></li>
-                <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
-                <li class="nav-item"><a class="nav-link" href="#media">Media Sosial</a></li>
-            </ul>
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar navbar-expand-lg shadow-sm sticky-top py-2">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="KIR.webp" alt="Logo KIR">
+                KIR Blasman
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#breanda">Breanda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pembina">Pembina</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#raihan">Raihan Juara</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#media">Media Sosial</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<!-- ==================== HERO ==================== -->
-<section class="py-5 text-center bg-white">
-    <div class="container">
-        <h1 class="display-4 fw-bold animate__animated animate__fadeInUp">Selamat Datang di KIR Blasman</h1>
-        <p class="lead animate__animated animate__fadeInUp animate__delay-1s">
-            Ekstrakurikuler yang memupuk kreativitas ilmiah remaja: esai, KTI, & karya ilmiah lainnya.
-        </p>
-        <a href="#breanda" class="btn btn-primary btn-lg mt-3 animate__animated animate__pulse animate__infinite">
-            Jelajahi Lebih Lanjut
-        </a>
-    </div>
-</section>
-
-<!-- ==================== BREANDA (Definisi) ==================== -->
-<section id="breanda" class="py-5">
-    <div class="container">
-        <h2 class="section-title text-center">Apa Itu KIR Blasman?</h2>
-        <p class="text-center px-3">
-            <strong>KIR Blasman</strong> (Karya Ilmiah Remaja) adalah
-            ekstrakurikuler yang dirancang khusus untuk menyalurkan bakat
-            ilmiah siswa SMA Negeri 1 Blahbatuh. Melalui kegiatan menulis
-            esai, KTI, dan karya ilmiah lainnya, kami mengasah kemampuan
-            riset, pemikiran kritis, serta kreativitas dalam mengekspresikan
-            gagasan ilmiah. Bergabunglah, dan jadilah bagian dari generasi
-            peneliti muda yang siap berkompetisi di tingkat regional maupun
-            nasional.
-        </p>
-    </div>
-</section>
-
-<!-- ==================== PEMBINA ==================== -->
-<section id="pembina" class="py-5 bg-light">
-    <div class="container">
-        <h2 class="section-title text-center">Pembina</h2>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="https://via.placeholder.com/400x200?text=Foto+Pembina+1"
-                         class="card-img-top" alt="Pembina 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Bapak Ahmad Surya</h5>
-                        <p class="card-text">Guru Biologi yang berpengalaman dalam bimbingan riset ilmiah
-                            dan penulisan KTI sejak 2012.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="https://via.placeholder.com/400x200?text=Foto+Pembina+2"
-                         class="card-img-top" alt="Pembina 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Ibu Siti Nurhaliza</h5>
-                        <p class="card-text">Guru Bahasa Indonesia yang menekankan
-                            teknik penulisan esai argumentatif dan kreatif.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="https://via.placeholder.com/400x200?text=Foto+Pembina+3"
-                         class="card-img-top" alt="Pembina 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Bapak Joko Prasetyo</h5>
-                        <p class="card-text">Guru Fisika yang memfasilitasi eksperimen
-                            serta publikasi hasil penelitian siswa.</p>
+    <!-- ==================== HERO ==================== -->
+    <section class="position-relative text-white overflow-hidden" style="min-height: 560px;">
+        <div class="hero-carousel owl-carousel owl-theme position-absolute top-0 start-0 w-100 h-100">
+            <div class="item position-relative h-100" style="background-image: url('cover1.webp');"><div class="carousel-overlay"></div></div>
+            <div class="item position-relative h-100" style="background-image: url('cover2.webp');"><div class="carousel-overlay"></div></div>
+        </div>
+        <div class="position-relative z-index-5" style="padding: 6rem 1.5rem;">
+            <div class="container h-100 d-flex align-items-center">
+                <div class="row justify-content-center w-100">
+                    <div class="col-lg-8 text-center">
+                        <span class="badge bg-danger rounded-pill px-4 py-2 mb-3">KIR Blasman</span>
+                        <h1 class="display-5 fw-bold mb-3 wow animate__fadeInUp" data-wow-delay="0.2s">KIR Blasman (Karya Ilmiah Remaja)</h1>
+                        <p class="lead mb-4 wow animate__fadeInUp" data-wow-delay="0.4s">KIR Blasman adalah ekstrakurikuler yang membimbing siswa SMA Negeri 1 Blahbatuh dalam kegiatan riset, penulisan KTI, dan persiapan lomba karya ilmiah.</p>
+                        <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 mb-3">
+                            <a href="#breanda" class="btn btn-danger btn-lg px-4 py-3">Yuk, Eksplor KIR!</a>
+                            <a href="https://forms.gle/PkkcUGvK2PgMZC2z9" class="btn btn-success btn-lg px-4 py-3">Daftar</a>
+                        </div>
+                        <a href="#kontak" class="btn btn-outline-light btn-lg px-4 py-3">Kontak Kami</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ==================== RAIHAN JUARA ==================== -->
-<section id="raihan" class="py-5">
-    <div class="container">
-        <h2 class="section-title text-center">Raihan & Juara</h2>
-        <p class="text-center mb-4">Berikut beberapa pencapaian gemilang KIR Blasman:</p>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="https://via.placeholder.com/400x250?text=Juara+1"
-                         class="card-img-top" alt="Juara 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Juara 1 – Lomba KTI regional (2023)</h5>
-                        <p class="card-text">Karya “Optimalisasi Sistem Irigasi” oleh
-                            Tim 12A memperoleh penghargaan tertinggi.</p>
+    <!-- ==================== BREANDA (Definisi) ==================== -->
+    <section id="breanda" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center wow animate__fadeInUp" data-wow-delay="0.1s">Apa Itu KIR Blasman?</h2>
+            <p class="text-center px-3">
+                <strong>KIR Blasman</strong> (Karya Ilmiah Remaja) adalah
+                ekstrakurikuler yang dirancang khusus untuk menyalurkan bakat
+                ilmiah siswa SMA Negeri 1 Blahbatuh. Melalui kegiatan menulis
+                esai, KTI, dan karya ilmiah lainnya, kami mengasah kemampuan
+                riset, pemikiran kritis, serta kreativitas dalam mengekspresikan
+                gagasan ilmiah. Bergabunglah, dan jadilah bagian dari generasi
+                peneliti muda yang siap berkompetisi di tingkat regional maupun
+                nasional.
+            </p>
+        </div>
+    </section>
+
+    <!-- ==================== PEMBINA (Single responsive) ==================== -->
+    <section id="pembina" class="py-5 bg-light">
+        <div class="container-fluid px-0">
+            <div class="w-100 text-center">
+                <img src="Bapak Sudana.webp" alt="Bapak Sudana" class="pembina-photo wow animate__fadeIn" data-wow-delay="0.12s">
+            </div>
+        </div>
+        <div class="container mt-4">
+            <h2 class="section-title text-center wow animate__fadeInUp" data-wow-delay="0.14s">Pembina</h2>
+            <p class="text-center text-muted mb-0">Bapak Sudana, Ibu Ika dan Bapak Angga - Pembina KIR Blasman, membimbing siswa dalam penelitian, penulisan KTI, serta persiapan lomba karya ilmiah.</p>
+        </div>
+    </section>
+
+    <!-- ==================== RAIHAN JUARA ==================== -->
+    <section id="raihan" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center wow animate__fadeInUp" data-wow-delay="0.14s">Raihan & Juara</h2>
+            <p class="text-center mb-4 wow animate__fadeInUp" data-wow-delay="0.16s">Berikut beberapa pencapaian gemilang KIR Blasman:</p>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm wow animate__fadeInUp" data-wow-delay="0.18s">
+                        <img src="kir1.webp" class="card-img-top raihan-card-img" alt="Juara 1">
+                        <div class="card-body">
+                            <h5 class="card-title">1. JUARA UMUM lomba nasional essay competition Yogyakarta</h5>
+                            <p class="card-text mb-0">2. Gold medal NEC sub tema pangan<br>3. Silver medal NEC sub tema pertanian<br>4. Bronze NEC sub tema pendidikan, sosial budaya, pertanian, lingkungan<br>5. Juara harapan 1 National Essay Competition Yogyakarta</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm wow animate__fadeInUp" data-wow-delay="0.20s">
+                        <img src="kir2.webp" class="card-img-top raihan-card-img" alt="Juara 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Juara 1 dan 3 LKTI Tingkat Nasional di Unhi Denpasar</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm wow animate__fadeInUp" data-wow-delay="0.22s">
+                        <img src="kir3.webp" class="card-img-top raihan-card-img" alt="Juara 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Juara 1 Esai Ilmiah M-Force Tingkat Nasional yang diadakan oleh Universitas Udayana</h5>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="https://via.placeholder.com/400x250?text=Juara+2"
-                         class="card-img-top" alt="Juara 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Juara 2 – Festival Esai Nasional (2022)</h5>
-                        <p class="card-text">Esai “Masa Depan Energi Terbarukan” oleh
-                            Siswa 10B menonjolkan analisis data yang kuat.</p>
-                    </div>
+        </div>
+    </section>
+
+    <!-- ==================== PEMBINA (Multiple responsive) ==================== -->
+    <!-- ==================== TESTIMONI (Carousel) 
+    <section id="testimoni" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center wow animate__fadeInUp" data-wow-delay="0.18s">Testimoni Peserta</h2>
+            <div class="owl-carousel owl-theme mt-4">
+                <div class="item text-center px-3 wow animate__zoomIn" data-wow-delay="0.20s">
+                    <img src="https://via.placeholder.com/80?text=Foto+1" alt="Testimoni 1"
+                        class="testimonial-img mx-auto">
+                    <p class="mb-2"><em>“KIR Blasman mengubah cara saya menulis; kini
+                            saya lebih percaya diri mempresentasikan hasil riset.”</em></p>
+                    <strong>Rina – 2023</strong>
+                </div>
+                <div class="item text-center px-3 wow animate__zoomIn" data-wow-delay="0.22s">
+                    <img src="https://via.placeholder.com/80?text=Foto+2" alt="Testimoni 2"
+                        class="testimonial-img mx-auto">
+                    <p class="mb-2"><em>“Bimbingan pembina sangat profesional, membantu
+                            saya memenangkan lomba KTI pertama.”</em></p>
+                    <strong>Ari – 2022</strong>
+                </div>
+                <div class="item text-center px-3 wow animate__zoomIn" data-wow-delay="0.24s">
+                    <img src="https://via.placeholder.com/80?text=Foto+3" alt="Testimoni 3"
+                        class="testimonial-img mx-auto">
+                    <p class="mb-2"><em>“Lingkungan yang supportive membuat
+                            eksplorasi ilmiah jadi menyenangkan.”</em></p>
+                    <strong>Siti – 2023</strong>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="https://via.placeholder.com/400x250?text=Juara+3"
-                         class="card-img-top" alt="Juara 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Best Paper – Konferensi Remaja Ilmiah (2021)</h5>
-                        <p class="card-text">Makalah “Pengaruh Mikroplastik pada Ekosistem
-                            Air Tawar” mendapat pujian atas metodologi yang inovatif.</p>
-                    </div>
+        </div>
+    </section>
+    ==================== -->
+
+    <!-- ==================== KONTAK ==================== -->
+    <section id="kontak" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center wow animate__fadeInUp" data-wow-delay="0.20s">Hubungi Kami</h2>
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-6 text-center">
+                    <p>
+                        <i class="fa-solid fa-phone me-2"></i>
+                        WhatsApp: <a href="https://wa.me/6281234567890" target="_blank" class="text-decoration-none">+62
+                            812‑3456‑7890</a>
+                    </p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ==================== TESTIMONI (Carousel) ==================== -->
-<section id="testimoni" class="py-5 bg-light">
-    <div class="container">
-        <h2 class="section-title text-center">Testimoni Peserta</h2>
-        <div class="owl-carousel owl-theme mt-4">
-            <div class="item text-center px-3">
-                <img src="https://via.placeholder.com/80?text=Foto+1"
-                     alt="Testimoni 1" class="testimonial-img mx-auto">
-                <p class="mb-2"><em>“KIR Blasman mengubah cara saya menulis; kini
-                    saya lebih percaya diri mempresentasikan hasil riset.”</em></p>
-                <strong>Rina – 2023</strong>
-            </div>
-            <div class="item text-center px-3">
-                <img src="https://via.placeholder.com/80?text=Foto+2"
-                     alt="Testimoni 2" class="testimonial-img mx-auto">
-                <p class="mb-2"><em>“Bimbingan pembina sangat profesional, membantu
-                    saya memenangkan lomba KTI pertama.”</em></p>
-                <strong>Ari – 2022</strong>
-            </div>
-            <div class="item text-center px-3">
-                <img src="https://via.placeholder.com/80?text=Foto+3"
-                     alt="Testimoni 3" class="testimonial-img mx-auto">
-                <p class="mb-2"><em>“Lingkungan yang supportive membuat
-                    eksplorasi ilmiah jadi menyenangkan.”</em></p>
-                <strong>Siti – 2023</strong>
-            </div>
+    <!-- ==================== MEDIA SOSIAL ==================== -->
+    <section id="media" class="py-4 bg-light">
+        <div class="container text-center">
+            <h5>Ikuti Kami di Media Sosial</h5>
+            <a href="https://instagram.com/kir.blasman" target="_blank" class="btn btn-outline-primary mt-2 me-2"><i
+                    class="fa-brands fa-instagram me-1"></i>Instagram</a>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ==================== KONTAK ==================== -->
-<section id="kontak" class="py-5">
-    <div class="container">
-        <h2 class="section-title text-center">Hubungi Kami</h2>
-        <div class="row justify-content-center mt-4">
-            <div class="col-md-6 text-center">
-                <p>
-                    <i class="fa-solid fa-phone me-2"></i>
-                    WhatsApp: <a href="https://wa.me/6281234567890" target="_blank"
-                                class="text-decoration-none">+62 812‑3456‑7890</a>
-                </p>
-                <p>
-                    <i class="fa-solid fa-envelope me-2"></i>
-                    Email: <a href="mailto:kir@smans1blabtu.id"
-                               class="text-decoration-none">kir@smans1blabtu.id</a>
-                </p>
+    <!-- ==================== QUICK NAVIGATION (Footer) ==================== -->
+    <footer class="footer mt-5">
+        <div class="container">
+            <div class="quick-nav mb-2">
+                <a href="#breanda">Breanda</a>
+                <a href="#pembina">Pembina</a>
+                <a href="#raihan">Raihan Juara</a>
+                <a href="#kontak">Kontak</a>
+                <a href="#media">Media Sosial</a>
             </div>
+            <div>© 2026 KIR Blasman – Semua Hak Dilindungi.</div>
         </div>
-    </div>
-</section>
+    </footer>
 
-<!-- ==================== MEDIA SOSIAL ==================== -->
-<section id="media" class="py-4 bg-light">
-    <div class="container text-center">
-        <h5>Ikuti Kami di Media Sosial</h5>
-        <a href="https://instagram.com/kir.blasman" target="_blank"
-           class="btn btn-outline-primary mt-2 me-2"><i class="fa-brands fa-instagram me-1"></i>Instagram</a>
-    </div>
-</section>
+    <!-- ==================== SCRIPTS ==================== -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+        $(document).ready(function () {
+            $('.hero-carousel').owlCarousel({
+                loop: true,
+                items: 1,
+                nav: true,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                smartSpeed: 1200,
+                navText: [
+                    '<span class="carousel-nav-icon">&#x2039;</span>',
+                    '<span class="carousel-nav-icon">&#x203A;</span>'
+                ]
+            });
 
-<!-- ==================== QUICK NAVIGATION (Footer) ==================== -->
-<footer class="footer mt-5">
-    <div class="container">
-        <div class="quick-nav mb-2">
-            <a href="#breanda">Breanda</a>
-            <a href="#pembina">Pembina</a>
-            <a href="#raihan">Raihan Juara</a>
-            <a href="#kontak">Kontak</a>
-            <a href="#media">Media Sosial</a>
-        </div>
-        <div>© 2026 KIR Blasman – Semua Hak Dilindungi.</div>
-    </div>
-</footer>
-
-<!-- ==================== SCRIPTS ==================== -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-<script>
-    new WOW().init();
-    $(document).ready(function(){
-        $('.owl-carousel').owlCarousel({
-            loop:true,
-            margin:10,
-            nav:false,
-            autoplay:true,
-            autoplayTimeout:5000,
-            responsive:{
-                0:{ items:1 },
-                600:{ items:2 },
-                1000:{ items:3 }
-            }
+            $('.owl-carousel:not(.hero-carousel)').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: false,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                responsive: {
+                    0: { items: 1 },
+                    600: { items: 2 },
+                    1000: { items: 3 }
+                }
+            });
         });
-    });
-</script>
+    </script>
 </body>
+
 </html>
